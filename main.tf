@@ -18,9 +18,18 @@ module "vlan" {
   vlan_count = "${var.vlan_count}"
 }
 
-module "sg" {
-  source    = "modules/infrastructure/node_sg"
-  random_id = "${random_id.ose_name.hex }"
+module "publicsg" {
+  source              = "modules/infrastructure/node_sg"
+  random_id           = "${random_id.ose_name.hex }"
+  node_sg_name        = "ose_node_pub_sg"
+  node_sg_description = "Public security group"
+}
+
+module "privatesg" {
+  source              = "modules/infrastructure/node_sg"
+  random_id           = "${random_id.ose_name.hex }"
+  node_sg_name        = "ose_node_prv_sg"
+  node_sg_description = "Private security group"
 }
 
 #####################################################
@@ -75,7 +84,8 @@ module "infranode" {
   infra_flavor          = "${var.infra_flavor}"
   infra_ssh_key_ids     = ["${ibm_compute_ssh_key.ssh_key_ose.id}", "${module.bastion.bastion_public_ssh_key}"]
   infra_private_ssh_key = "${var.private_ssh_key}"
-  infra_node_sg         = "${module.sg.openshift_node_id}"
+  infra_node_pub_sg     = "${module.publicsg.openshift_node_id}"
+  infra_node_prv_sg     = "${module.privatesg.openshift_node_id}"
 }
 
 #####################################################
@@ -94,7 +104,8 @@ module "appnode" {
   app_flavor          = "${var.app_flavor}"
   app_ssh_key_ids     = ["${ibm_compute_ssh_key.ssh_key_ose.id}", "${module.bastion.bastion_public_ssh_key}"]
   app_private_ssh_key = "${var.private_ssh_key}"
-  app_node_sg         = "${module.sg.openshift_node_id}"
+  app_node_pub_sg     = "${module.publicsg.openshift_node_id}"
+  app_node_prv_sg     = "${module.privatesg.openshift_node_id}"
 }
 
 #####################################################
@@ -113,7 +124,8 @@ module "storagenode" {
   storage_flavor          = "${var.storage_flavor}"
   storage_ssh_key_ids     = ["${ibm_compute_ssh_key.ssh_key_ose.id}", "${module.bastion.bastion_public_ssh_key}"]
   storage_private_ssh_key = "${var.private_ssh_key}"
-  storage_node_sg         = "${module.sg.openshift_node_id}"
+  storage_node_pub_sg     = "${module.publicsg.openshift_node_id}"
+  storage_node_prv_sg     = "${module.privatesg.openshift_node_id}"
 }
 
 #####################################################
@@ -133,7 +145,6 @@ module "towernode" {
   tower_ssh_key_ids     = ["${ibm_compute_ssh_key.ssh_key_ose.id}", "${module.bastion.bastion_public_ssh_key}"]
   tower_private_ssh_key = "${var.private_ssh_key}"
 }
-
 
 module "inventory" {
   source             = "modules/inventory"
