@@ -53,12 +53,10 @@ variable "vm_domain" {
 
 
 variable "ibm_sl_username"{
-  
 }
 
 
 variable "ibm_sl_api_key"{
-
 }
 
 variable "rhn_username"{

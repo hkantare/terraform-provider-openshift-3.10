@@ -1,5 +1,8 @@
-10.137.159.9 CMR-dev-564d7152f8-master-0 CMR-dev-564d7152f8-master-0.IBM-PoC-VW-OpenShift.cloud 
-10.137.159.21 CMR-dev-564d7152f8-infra-0 CMR-dev-564d7152f8-infra-0.IBM-PoC-VW-OpenShift.cloud 
-10.137.159.20 CMR-dev-564d7152f8-app-0 CMR-dev-564d7152f8-app-0.IBM-PoC-VW-OpenShift.cloud 
-169.50.140.12 CMR-dev-564d7152f8-master-0 CMR-dev-564d7152f8-master-0.IBM-PoC-VW-OpenShift.cloud 
-10.137.159.33 CMR-dev-564d7152f8-storage-0 CMR-dev-564d7152f8-storage-0.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.151 CMR-OCP-ef80531c5e-master-0 CMR-OCP-ef80531c5e-master-0.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.189 CMR-OCP-ef80531c5e-infra-0 CMR-OCP-ef80531c5e-infra-0.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.179 CMR-OCP-ef80531c5e-app-0 CMR-OCP-ef80531c5e-app-0.IBM-PoC-VW-OpenShift.cloud 
+158.176.67.124 CMR-OCP-ef80531c5e-master-0 CMR-OCP-ef80531c5e-master-0.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.131 CMR-OCP-ef80531c5e-storage-0 CMR-OCP-ef80531c5e-storage-0.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.140 CMR-OCP-ef80531c5e-storage-1 CMR-OCP-ef80531c5e-storage-1.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.153 CMR-OCP-ef80531c5e-storage-2 CMR-OCP-ef80531c5e-storage-2.IBM-PoC-VW-OpenShift.cloud 
+10.72.182.169 CMR-OCP-ef80531c5e-tower CMR-OCP-ef80531c5e-tower.IBM-PoC-VW-OpenShift.cloud 

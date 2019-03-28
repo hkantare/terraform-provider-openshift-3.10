@@ -30,7 +30,7 @@ data "template_file" "compute_block" {
 
 data "template_file" "gluster_block" {
   count = "${var.storage_node_count}"
-  template = "$${hostname} glusterfs_ip=$${hostip} glusterfs_devices='[ \"/dev/dm-1\", \"/dev/dm-2\"]' openshift_node_group_name='node-config-compute'"
+  template = "$${hostname} glusterfs_ip=$${hostip} glusterfs_devices='[ \"/dev/dm-0\", \"/dev/dm-1\", \"/dev/dm-2\"]' openshift_node_group_name='node-config-compute'"
   vars {
    hostname = "${element(var.storage_host, count.index)}.${var.domain}"
    hostip = "${element(var.storage_private_ip, count.index)}"
